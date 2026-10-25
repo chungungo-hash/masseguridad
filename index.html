@@ -1,0 +1,790 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Más Seguridad | Tecnología, Redes y Seguridad</title>
+    <meta name="description" content="Instalación y mantenimiento de cámaras de seguridad, domótica, electricidad domiciliaria, computación, redes y ciberseguridad.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <style>
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .rojo { color: #c8102e; }
+        .fondo-rojo { background-color: #c8102e; }
+
+        .boton-rojo {
+            background: #c8102e;
+            transition: all .25s ease;
+        }
+
+        .boton-rojo:hover {
+            background: #a30c24;
+            transform: translateY(-2px);
+        }
+
+        .servicio-card {
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,.10);
+        }
+
+        .hero-fondo {
+            background:
+                linear-gradient(90deg, rgba(255,255,255,.98) 0%,
+                rgba(255,255,255,.94) 48%,
+                rgba(255,255,255,.20) 100%);
+        }
+
+        #contractModal {
+            overscroll-behavior: contain;
+        }
+
+        .campo:focus {
+            outline: none;
+            border-color: #c8102e;
+            box-shadow: 0 0 0 3px rgba(200,16,46,.12);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-neutral-900">
+
+    <!-- NAVEGACIÓN -->
+    <header class="bg-white shadow-sm sticky top-0 z-40 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center gap-4">
+
+            <a href="#inicio" class="flex items-center gap-3">
+                <div class="w-12 h-12 fondo-rojo text-white rounded-xl flex items-center justify-center text-2xl">
+                    <i class="fas fa-shield-halved"></i>
+                </div>
+                <div>
+                    <span class="block text-2xl font-black tracking-tight">
+                        MÁS <span class="rojo">SEGURIDAD</span>
+                    </span>
+                    <span class="block text-[10px] tracking-[2px] uppercase text-gray-500">
+                        Tecnología y soluciones
+                    </span>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold">
+                <a href="#inicio" class="hover:text-red-700">Inicio</a>
+                <a href="#servicios" class="hover:text-red-700">Servicios</a>
+                <a href="#tecnologia" class="hover:text-red-700">Soluciones técnicas</a>
+                <a href="#nosotros" class="hover:text-red-700">Nosotros</a>
+                <a href="#contacto" class="hover:text-red-700">Contacto</a>
+            </nav>
+
+            <button onclick="toggleModal(true)"
+                class="boton-rojo text-white font-bold px-4 sm:px-6 py-3 rounded-lg text-sm">
+                <i class="fas fa-clipboard-list mr-2"></i>
+                Solicitar servicio
+            </button>
+        </div>
+    </header>
+
+
+    <!-- PORTADA -->
+    <section id="inicio" class="relative overflow-hidden bg-white">
+        <div class="absolute inset-0">
+            <img
+                src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1800&q=85"
+                alt=""
+                class="w-full h-full object-cover opacity-20"
+            >
+            <div class="absolute inset-0 hero-fondo"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 py-20 md:py-28 relative z-10">
+            <div class="max-w-3xl">
+
+                <span class="inline-flex items-center gap-2 text-red-700 bg-red-50 border border-red-100 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wider">
+                    <i class="fas fa-circle-check"></i>
+                    Soluciones para tu hogar y empresa
+                </span>
+
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-black leading-tight mt-6">
+                    Tecnología, protección y conectividad
+                    <span class="rojo">en un solo lugar.</span>
+                </h1>
+
+                <p class="text-lg md:text-xl text-gray-600 mt-6 leading-relaxed max-w-2xl">
+                    En Más Seguridad ofrecemos instalación, mantenimiento y soporte técnico
+                    para tus sistemas de vigilancia, instalaciones eléctricas, equipos
+                    informáticos, redes y soluciones de ciberseguridad.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 mt-8">
+                    <button onclick="toggleModal(true)"
+                        class="boton-rojo text-white font-bold px-7 py-4 rounded-xl shadow-lg">
+                        Solicitar una visita
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+
+                    <a href="#servicios"
+                        class="border-2 border-neutral-900 text-neutral-900 font-bold px-7 py-4 rounded-xl text-center hover:bg-neutral-900 hover:text-white transition">
+                        Conocer los servicios
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-12 pt-8 border-t border-gray-300">
+                    <div>
+                        <i class="fas fa-video rojo text-xl"></i>
+                        <p class="font-bold mt-2">Seguridad electrónica</p>
+                        <p class="text-sm text-gray-500">Vigilancia y monitoreo</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-network-wired rojo text-xl"></i>
+                        <p class="font-bold mt-2">Redes y conectividad</p>
+                        <p class="text-sm text-gray-500">Infraestructura tecnológica</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-shield-halved rojo text-xl"></i>
+                        <p class="font-bold mt-2">Protección digital</p>
+                        <p class="text-sm text-gray-500">Buenas prácticas de seguridad</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="rojo font-bold uppercase tracking-widest text-sm">
+                    Nuestros servicios
+                </span>
+                <h2 class="text-3xl md:text-5xl font-black mt-3">
+                    Soluciones técnicas integrales
+                </h2>
+                <p class="text-gray-600 mt-4 leading-relaxed">
+                    Atendemos distintas necesidades tecnológicas y de mantenimiento,
+                    con soluciones adaptadas a las características de cada instalación.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+
+                <!-- CÁMARAS -->
+                <article class="servicio-card bg-white rounded-2xl overflow-hidden border border-gray-200">
+                    <img
+                        src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=900&q=80"
+                        alt="Sistema de cámaras de vigilancia"
+                        class="w-full h-56 object-cover"
+                        loading="lazy"
+                    >
+                    <div class="p-6">
+                        <div class="w-12 h-12 fondo-rojo text-white rounded-xl flex items-center justify-center text-xl">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mt-4">Cámaras de seguridad</h3>
+                        <p class="text-gray-600 text-sm mt-3 leading-relaxed">
+                            Instalación y mantenimiento de sistemas CCTV e IP para
+                            viviendas, oficinas y locales comerciales.
+                        </p>
+                        <ul class="text-sm text-gray-700 mt-4 space-y-2">
+                            <li><i class="fas fa-check rojo mr-2"></i>Cámaras IP y analógicas</li>
+                            <li><i class="fas fa-check rojo mr-2"></i>Grabadores DVR y NVR</li>
+                            <li><i class="fas fa-check rojo mr-2"></i>Acceso remoto desde el celular</li>
+                            <li><i class="fas fa-check rojo mr-2"></i>Diagnóstico y mantenimiento</li>
+                        </ul>
+                        <button onclick="solicitarServicio('Cámaras de seguridad')"
+                            class="mt-6 font-bold rojo hover:underline">
+                            Solicitar este servicio <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- DOMÓTICA -->
+                <article class="servicio-card bg-white rounded-2xl overflow-hidden border border-gray-200">
+                    <img
+                        src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=80"
+                        alt="Tecnología para domótica y automatización del hogar"
+                        class="w-full h-56 object-cover"
+                        loading="lazy"
+                    >
+                    <div class="p-6">
+                        <div class="w-12 h-12 fondo-rojo text-white rounded-xl flex items-center justify-center text-xl">
+                            <i class="fas fa-house-signal"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mt-4">Domótica y automatización</h3>
+                        <p class="text-gray-600 text-sm mt-3 leading-relaxed">
+                            Integración de dispositivos inteligentes para mejorar
+                            la comodidad, el control y la seguridad de los espacios.
+                        </p>
+                        <ul class="text-sm text-gray-700 mt-4 space-y-2">
+                            <li><i class="fas fa-check rojo mr-2"></i>Iluminación inteligente</li>
+                            <li><i class="fas fa-check rojo mr-2"></i>Sensores de movimiento</li>
+                            <li><i class="fas fa-check rojo mr-2"></i>Automatización de dispositivos</li>
+                            <li><i class="fas fa-check rojo mr-2"></i>Control desde aplicaciones compatibles</li>
+                        </ul>
+                        <button onclick="solicitarServicio('Domótica y automatización')"
+                            class="mt-6 font-bold rojo hover:underline">
+                            Solicitar este servicio <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- ELECTRICIDAD -->
+                <article class="servicio-card bg-white rounded-2xl overflow-hidden border border-gray-200">
+                    <img
+                        src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=900&q=80"
+                        alt="Trabajos e instalaciones eléctricas"
+                        class="w-full h-56 object-cover"
+                        loading="lazy"
+                    >
+                    <div class="p-6">
+                        <div class="w-12 h-12 fondo-rojo text-white rounded-xl flex items-center justify-center text-xl">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mt-4">Electricidad domiciliaria</h3>
+                        <p class="text-gray-600 text-sm mt-3 leading-relaxed">
+                            Instalación, revisión y mantenimiento eléctrico para
+                            viviendas y espacios de trabajo.
+                        </p>
+                        <ul class="text-sm text-gray-700 mt-4 space-y-2">
+                            <li><i class="fas fa-check rojo mr-2"></i>Diagnóstico de fallas</li>
+                            <li><i class="fas fa-check rojo mr-2"></i>Revisión de circuitos y tableros</li>
+                            <li><i class="fas fa-check rojo mr-2"></i>Instalación de enchufes e iluminación</li>
+                            <li><i class="fas fa-check rojo mr-2"></i>Revisión de protecciones eléctricas</li>
+                        </ul>
+                        <button onclick="solicitarServicio('Electricidad domiciliaria')"
+                            class="mt-6 font-bold rojo hover:underline">
+                            Solicitar este servicio <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- COMPUTACIÓN -->
+                <article class="servicio-card bg-white rounded-2xl overflow-hidden border border-gray-200">
+                    <img
+                        src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=900&q=80"
+                        alt="Mantenimiento de computadores"
+                        class="w-full h-56 object-cover"
+                        loading="lazy"
+                    >
+                    <div class="p-6">
+                        <div class="w-12 h-12 fondo-rojo text-white rounded-xl flex items-center justify-center text-xl">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mt-4">Computación y soporte técnico</h3>
+                        <p class="text-gray-600 text-sm mt-3 leading-relaxed">
+                            Mantenimiento preventivo y correctivo de computadores,
+                            diagnóstico y resolución de problemas informáticos.
+                        </p>
+                        <ul class="text-sm text-gray-700 mt-4 space-y-2">
+                            <li><i class="fas fa-check rojo mr-2"></i>Diagnóstico de hardware</li>
+                            <li><i class="fas fa-check rojo mr-2"></i>Instalación de sistemas operativos</li>
+                            <li><i class="fas fa-check rojo mr-2"></i>Optimización y limpieza</li>
+                            <li><i class="fas fa-check rojo mr-2"></i>Respaldos y recuperación de datos</li>
+                        </ul>
+                        <button onclick="solicitarServicio('Computación y soporte técnico')"
+                            class="mt-6 font-bold rojo hover:underline">
+                            Solicitar este servicio <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- REDES -->
+                <article class="servicio-card bg-white rounded-2xl overflow-hidden border border-gray-200">
+                    <img
+                        src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80"
+                        alt="Infraestructura de redes y comunicaciones"
+                        class="w-full h-56 object-cover"
+                        loading="lazy"
+                    >
+                    <div class="p-6">
+                        <div class="w-12 h-12 fondo-rojo text-white rounded-xl flex items-center justify-center text-xl">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mt-4">Redes y conectividad</h3>
+                        <p class="text-gray-600 text-sm mt-3 leading-relaxed">
+                            Diseño, instalación y mantenimiento de infraestructura
+                            de red para hogares, oficinas y pequeños negocios.
+                        </p>
+                        <ul class="text-sm text-gray-700 mt-4 space-y-2">
+                            <li><i class="fas fa-check rojo mr-2"></i>Cableado estructurado</li>
+                            <li><i class="fas fa-check rojo mr-2"></i>Configuración de routers y switches</li>
+                            <li><i class="fas fa-check rojo mr-2"></i>Redes LAN y Wi-Fi</li>
+                            <li><i class="fas fa-check rojo mr-2"></i>VLAN y diagnóstico de conectividad</li>
+                        </ul>
+                        <button onclick="solicitarServicio('Redes y conectividad')"
+                            class="mt-6 font-bold rojo hover:underline">
+                            Solicitar este servicio <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- CIBERSEGURIDAD -->
+                <article class="servicio-card bg-white rounded-2xl overflow-hidden border border-gray-200">
+                    <img
+                        src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80"
+                        alt="Tecnología y ciberseguridad"
+                        class="w-full h-56 object-cover"
+                        loading="lazy"
+                    >
+                    <div class="p-6">
+                        <div class="w-12 h-12 fondo-rojo text-white rounded-xl flex items-center justify-center text-xl">
+                            <i class="fas fa-shield-halved"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mt-4">Ciberseguridad</h3>
+                        <p class="text-gray-600 text-sm mt-3 leading-relaxed">
+                            Medidas preventivas y revisión de configuraciones
+                            para reducir los riesgos en dispositivos y redes.
+                        </p>
+                        <ul class="text-sm text-gray-700 mt-4 space-y-2">
+                            <li><i class="fas fa-check rojo mr-2"></i>Configuración segura de equipos</li>
+                            <li><i class="fas fa-check rojo mr-2"></i>Revisión básica de redes y accesos</li>
+                            <li><i class="fas fa-check rojo mr-2"></i>Protección de información y respaldos</li>
+                            <li><i class="fas fa-check rojo mr-2"></i>Orientación en buenas prácticas</li>
+                        </ul>
+                        <button onclick="solicitarServicio('Ciberseguridad')"
+                            class="mt-6 font-bold rojo hover:underline">
+                            Solicitar este servicio <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SOLUCIONES TÉCNICAS -->
+    <section id="tecnologia" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+                <div>
+                    <span class="rojo font-bold uppercase tracking-widest text-sm">
+                        Conocimiento técnico
+                    </span>
+                    <h2 class="text-3xl md:text-5xl font-black mt-3 leading-tight">
+                        Soluciones pensadas para funcionar correctamente
+                    </h2>
+                    <p class="text-gray-600 mt-5 leading-relaxed">
+                        Cada instalación comienza con la identificación de las
+                        necesidades, la revisión de las condiciones existentes y
+                        la selección de una solución compatible con el entorno.
+                    </p>
+
+                    <div class="space-y-5 mt-8">
+
+                        <div class="flex gap-4">
+                            <div class="w-11 h-11 shrink-0 bg-red-50 rojo rounded-lg flex items-center justify-center">
+                                <i class="fas fa-sitemap text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Diseño y diagnóstico</h3>
+                                <p class="text-gray-600 text-sm mt-1">
+                                    Revisión de cableado, cobertura, equipos,
+                                    conectividad y requerimientos de instalación.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-11 h-11 shrink-0 bg-red-50 rojo rounded-lg flex items-center justify-center">
+                                <i class="fas fa-sliders text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Configuración y puesta en marcha</h3>
+                                <p class="text-gray-600 text-sm mt-1">
+                                    Configuración de dispositivos, pruebas de
+                                    funcionamiento y validación de conectividad.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-11 h-11 shrink-0 bg-red-50 rojo rounded-lg flex items-center justify-center">
+                                <i class="fas fa-screwdriver-wrench text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Mantenimiento preventivo y correctivo</h3>
+                                <p class="text-gray-600 text-sm mt-1">
+                                    Detección de fallas, revisión de componentes
+                                    y recomendaciones para mantener los sistemas operativos.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-11 h-11 shrink-0 bg-red-50 rojo rounded-lg flex items-center justify-center">
+                                <i class="fas fa-lock text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Seguridad desde la configuración</h3>
+                                <p class="text-gray-600 text-sm mt-1">
+                                    Revisión de contraseñas, permisos, actualizaciones
+                                    y exposición innecesaria de servicios, según cada caso.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <img
+                        src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85"
+                        alt="Componentes electrónicos y tecnología"
+                        class="rounded-2xl shadow-xl w-full h-[450px] object-cover"
+                        loading="lazy"
+                    >
+
+                    <div class="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur rounded-xl p-5 shadow-lg">
+                        <p class="font-black text-lg">
+                            <span class="rojo">Más Seguridad</span>
+                        </p>
+                        <p class="text-gray-600 text-sm mt-1">
+                            Un enfoque integral para tus necesidades tecnológicas.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- NOSOTROS / PROCESO -->
+    <section id="nosotros" class="py-20 bg-neutral-950 text-white">
+        <div class="max-w-7xl mx-auto px-4">
+
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="text-red-400 font-bold uppercase tracking-widest text-sm">
+                    Cómo trabajamos
+                </span>
+                <h2 class="text-3xl md:text-5xl font-black mt-3">
+                    Un servicio claro de principio a fin
+                </h2>
+                <p class="text-gray-400 mt-4">
+                    Buscamos que conozcas el trabajo solicitado, las alternativas
+                    disponibles y las pruebas realizadas.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-14">
+
+                <div class="border border-white/10 bg-white/5 rounded-2xl p-6">
+                    <span class="text-4xl font-black text-red-500">01</span>
+                    <h3 class="font-bold text-xl mt-4">Solicitud</h3>
+                    <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+                        Nos explicas qué necesitas y qué problema presenta tu instalación o equipo.
+                    </p>
+                </div>
+
+                <div class="border border-white/10 bg-white/5 rounded-2xl p-6">
+                    <span class="text-4xl font-black text-red-500">02</span>
+                    <h3 class="font-bold text-xl mt-4">Evaluación</h3>
+                    <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+                        Revisamos los requerimientos y definimos el alcance del trabajo.
+                    </p>
+                </div>
+
+                <div class="border border-white/10 bg-white/5 rounded-2xl p-6">
+                    <span class="text-4xl font-black text-red-500">03</span>
+                    <h3 class="font-bold text-xl mt-4">Ejecución</h3>
+                    <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+                        Se realizan los trabajos acordados y las configuraciones correspondientes.
+                    </p>
+                </div>
+
+                <div class="border border-white/10 bg-white/5 rounded-2xl p-6">
+                    <span class="text-4xl font-black text-red-500">04</span>
+                    <h3 class="font-bold text-xl mt-4">Verificación</h3>
+                    <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+                        Se comprueba el funcionamiento y se entregan recomendaciones de uso y cuidado.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- LLAMADO A LA ACCIÓN -->
+    <section id="contacto" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="fondo-rojo rounded-3xl p-8 md:p-14 text-white flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="max-w-2xl">
+                    <h2 class="text-3xl md:text-4xl font-black">
+                        ¿Necesitas ayuda con una instalación o equipo?
+                    </h2>
+                    <p class="mt-4 text-white/85 leading-relaxed">
+                        Cuéntanos qué necesitas. Envíanos tu solicitud para
+                        evaluar el servicio adecuado para tu hogar o empresa.
+                    </p>
+                </div>
+
+                <button onclick="toggleModal(true)"
+                    class="shrink-0 bg-white text-red-700 font-black px-8 py-4 rounded-xl hover:bg-gray-100 transition">
+                    Solicitar servicio
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="bg-neutral-950 text-white py-10">
+        <div class="max-w-7xl mx-auto px-4">
+
+            <div class="flex flex-col md:flex-row justify-between gap-8">
+
+                <div>
+                    <div class="text-2xl font-black">
+                        MÁS <span class="text-red-500">SEGURIDAD</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-3 max-w-md">
+                        Soluciones en seguridad electrónica, automatización,
+                        electricidad, informática, redes y ciberseguridad.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-bold mb-3">Accesos rápidos</h3>
+                    <div class="flex flex-col gap-2 text-sm text-gray-400">
+                        <a href="#servicios" class="hover:text-white">Servicios</a>
+                        <a href="#tecnologia" class="hover:text-white">Soluciones técnicas</a>
+                        <a href="#nosotros" class="hover:text-white">Cómo trabajamos</a>
+                        <button onclick="toggleModal(true)" class="text-left hover:text-white">
+                            Solicitar servicio
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/10 mt-8 pt-6 text-sm text-gray-500 flex flex-col sm:flex-row justify-between gap-3">
+                <p>&copy; <span id="year"></span> Más Seguridad. Todos los derechos reservados.</p>
+                <p>Seguridad, tecnología y conectividad.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- FORMULARIO DE SOLICITUD -->
+    <div id="contractModal"
+        class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+        onclick="if(event.target === this) toggleModal(false)">
+
+        <div class="bg-white rounded-2xl shadow-2xl max-w-xl w-full max-h-[92vh] overflow-y-auto p-6 sm:p-8 relative">
+
+            <button type="button"
+                onclick="toggleModal(false)"
+                aria-label="Cerrar formulario"
+                class="absolute top-4 right-4 text-gray-400 hover:text-red-700 text-2xl">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="mb-6 pr-8">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 fondo-rojo text-white rounded-xl flex items-center justify-center text-xl">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <div>
+                        <p class="font-black text-xl">
+                            MÁS <span class="rojo">SEGURIDAD</span>
+                        </p>
+                        <p class="text-xs text-gray-500">Formulario de atención técnica</p>
+                    </div>
+                </div>
+
+                <h2 id="modalTitle" class="text-2xl font-black mt-6">
+                    Solicitar un servicio
+                </h2>
+                <p class="text-sm text-gray-600 mt-2">
+                    Completa tus datos y cuéntanos qué necesitas. Nos pondremos
+                    en contacto contigo para revisar tu solicitud.
+                </p>
+            </div>
+
+            <form
+                id="serviceForm"
+                action="https://formsubmit.co/electricidad.morales2030@gmail.com"
+                method="POST"
+                class="space-y-4">
+
+                <input type="hidden" name="_subject" value="Nueva solicitud de servicio - Más Seguridad">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="true">
+
+                <div>
+                    <label for="nombre" class="block text-sm font-semibold mb-1">
+                        Nombre completo *
+                    </label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre_cliente"
+                        required
+                        maxlength="100"
+                        autocomplete="name"
+                        class="campo w-full border border-gray-300 rounded-lg px-4 py-3 text-sm"
+                        placeholder="Ingresa tu nombre">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="email" class="block text-sm font-semibold mb-1">
+                            Correo electrónico *
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="correo_cliente"
+                            required
+                            maxlength="150"
+                            autocomplete="email"
+                            class="campo w-full border border-gray-300 rounded-lg px-4 py-3 text-sm"
+                            placeholder="tucorreo@ejemplo.com">
+                    </div>
+
+                    <div>
+                        <label for="telefono" class="block text-sm font-semibold mb-1">
+                            Teléfono de contacto *
+                        </label>
+                        <input
+                            type="tel"
+                            id="telefono"
+                            name="telefono_cliente"
+                            required
+                            maxlength="25"
+                            autocomplete="tel"
+                            class="campo w-full border border-gray-300 rounded-lg px-4 py-3 text-sm"
+                            placeholder="+56 9 1234 5678">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="servicio" class="block text-sm font-semibold mb-1">
+                        Servicio solicitado *
+                    </label>
+                    <select
+                        id="servicio"
+                        name="servicio_solicitado"
+                        required
+                        class="campo w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white">
+                        <option value="">Selecciona un servicio</option>
+                        <option value="Cámaras de seguridad">Cámaras de seguridad</option>
+                        <option value="Domótica y automatización">Domótica y automatización</option>
+                        <option value="Electricidad domiciliaria">Electricidad domiciliaria</option>
+                        <option value="Computación y soporte técnico">Computación y soporte técnico</option>
+                        <option value="Redes y conectividad">Redes y conectividad</option>
+                        <option value="Ciberseguridad">Ciberseguridad</option>
+                        <option value="Otro servicio">Otro / Consulta general</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="comuna" class="block text-sm font-semibold mb-1">
+                        Comuna o sector
+                    </label>
+                    <input
+                        type="text"
+                        id="comuna"
+                        name="comuna_sector"
+                        maxlength="100"
+                        autocomplete="address-level2"
+                        class="campo w-full border border-gray-300 rounded-lg px-4 py-3 text-sm"
+                        placeholder="Ej. Buin, Santiago">
+                </div>
+
+                <div>
+                    <label for="descripcion" class="block text-sm font-semibold mb-1">
+                        Describe el trabajo o problema *
+                    </label>
+                    <textarea
+                        id="descripcion"
+                        name="descripcion_servicio"
+                        required
+                        maxlength="2000"
+                        rows="4"
+                        class="campo w-full border border-gray-300 rounded-lg px-4 py-3 text-sm resize-y"
+                        placeholder="Indica qué necesitas instalar, reparar o revisar..."></textarea>
+                </div>
+
+                <p class="text-xs text-gray-500 leading-relaxed">
+                    Tus datos se utilizarán para responder a esta solicitud.
+                    No ingreses contraseñas ni información financiera.
+                </p>
+
+                <button
+                    type="submit"
+                    class="boton-rojo w-full text-white font-bold py-4 rounded-xl shadow-lg">
+                    <i class="fas fa-paper-plane mr-2"></i>
+                    Enviar solicitud
+                </button>
+
+                <button
+                    type="button"
+                    onclick="toggleModal(false)"
+                    class="w-full text-gray-500 font-semibold py-2 hover:text-black">
+                    Cancelar
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+
+    <!-- FUNCIONES -->
+    <script>
+        function toggleModal(show) {
+            const modal = document.getElementById('contractModal');
+
+            if (show) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+
+                setTimeout(() => {
+                    document.getElementById('nombre').focus();
+                }, 100);
+            } else {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function solicitarServicio(servicio) {
+            toggleModal(true);
+            document.getElementById('servicio').value = servicio;
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                toggleModal(false);
+            }
+        });
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
